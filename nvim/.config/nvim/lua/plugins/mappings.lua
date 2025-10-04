@@ -17,6 +17,10 @@ return {
           ["<Leader>+"] = { "<C-a>", desc = "Increment number under cursor" },
           ["<Leader>-"] = { "<C-x>", desc = "Decrement number under cursor" },
 
+          -- Buffer navigation
+          ["H"] = { "<cmd>bprevious<cr>", desc = "Previous buffer" },
+          ["L"] = { "<cmd>bnext<cr>", desc = "Next buffer" },
+
           -- Split window management
           ["<Leader>sv"] = { ":vsplit<CR>", desc = "Split window vertically" },
           ["<Leader>sh"] = { ":split<CR>", desc = "Split window horizontally" },
