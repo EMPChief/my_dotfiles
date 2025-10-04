@@ -1,0 +1,89 @@
+---@type LazySpec[]
+return {
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {
+        panel = {
+          enabled = true,
+          auto_refresh = false,
+          keymap = {
+            jump_prev = "[[",
+            jump_next = "]]",
+            accept = "<CR>",
+            refresh = "gr",
+            open = "<M-CR>",
+          },
+        },
+        suggestion = {
+          enabled = false,
+        },
+        filetypes = {
+          yaml = false,
+          markdown = true,
+          help = false,
+          gitcommit = false,
+          gitrebase = false,
+          ["."] = false,
+        },
+        copilot_node_command = "node",
+        server_opts_overrides = {},
+      }
+    end,
+  },
+
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = "copilot.lua",
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
+
+  -- Copilot Chat (Better than ChatGPT.nvim for Copilot users)
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    cmd = "CopilotChat",
+    keys = {
+      { "<leader>aa", "<cmd>CopilotChatToggle<cr>", desc = "Toggle Copilot Chat" },
+      { "<leader>ae", "<cmd>CopilotChatExplain<cr>", mode = { "n", "v" }, desc = "Explain Code" },
+      { "<leader>at", "<cmd>CopilotChatTests<cr>", mode = { "n", "v" }, desc = "Generate Tests" },
+      { "<leader>af", "<cmd>CopilotChatFix<cr>", mode = { "n", "v" }, desc = "Fix Code" },
+      { "<leader>ao", "<cmd>CopilotChatOptimize<cr>", mode = { "n", "v" }, desc = "Optimize Code" },
+      { "<leader>ad", "<cmd>CopilotChatDocs<cr>", mode = { "n", "v" }, desc = "Generate Docs" },
+    },
+    dependencies = {
+      { "zbirenbaum/copilot.lua" },
+      { "nvim-lua/plenary.nvim" },
+    },
+    config = function()
+      require("CopilotChat").setup {
+        debug = false,
+        model = "gpt-4",
+        temperature = 0.1,
+        question_header = "## User ",
+        answer_header = "## Copilot ",
+        error_header = "## Error ",
+        prompts = {
+          Explain = "Explain how this code works.",
+          Review = "Review this code and provide concise suggestions.",
+          Tests = "Write tests for this code.",
+          Refactor = "Refactor this code to improve its clarity and readability.",
+          FixCode = "Fix this code.",
+          FixError = "Fix the error in this code.",
+          BetterNamings = "Provide better names for variables and functions.",
+          Documentation = "Write documentation for this code.",
+          SwaggerApiDocs = "Write Swagger API documentation.",
+          SwaggerJsDocs = "Write Swagger JSDoc documentation.",
+          Summarize = "Summarize this text.",
+          Spelling = "Correct spelling and grammar.",
+          Wording = "Improve wording.",
+          Concise = "Make this text more concise.",
+        },
+      }
+    end,
+  },
+}

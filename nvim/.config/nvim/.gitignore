@@ -1,0 +1,34 @@
+# Neovim
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Plugin data
+plugin/
+.repro/
+
+# Session files
+*.vim
+*.session
+
+# Local configuration
+local.lua
+.env
+.env.local
+
+# API keys and tokens
+*_token
+*_key
+*.pem
+credentials.lua
+
+# LSP/DAP
+.log
+*.log
+
+# Lazy.nvim
+lazy-lock.json
+
+# OS files
+Thumbs.db

@@ -1,0 +1,43 @@
+---@type LazySpec
+return {
+  "hrsh7th/nvim-cmp",
+  dependencies = {
+    "zbirenbaum/copilot-cmp",
+  },
+  opts = function(_, opts)
+    local cmp = require "cmp"
+
+    if not opts.mapping then opts.mapping = {} end
+
+    opts.mapping["<CR>"] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = false,
+    }
+
+    opts.mapping["<C-y>"] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    }
+
+    opts.mapping["<C-e>"] = cmp.mapping.abort()
+
+    if not opts.sources then opts.sources = {} end
+    
+    local has_copilot = false
+    for _, source in ipairs(opts.sources) do
+      if source.name == "copilot" then
+        has_copilot = true
+        break
+      end
+    end
+    
+    if not has_copilot then
+      table.insert(opts.sources, {
+        name = "copilot",
+        priority = 1000,
+      })
+    end
+
+    return opts
+  end,
+}

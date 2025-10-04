@@ -1,0 +1,127 @@
+format = """
+[](bg:#1a1b26)\
+$os\
+$username\
+[](bg:#2f3549 fg:#1a1b26)\
+$directory\
+[](fg:#2f3549 bg:#33467C)\
+$git_branch\
+$git_status\
+[](fg:#33467C bg:#394260)\
+$nodejs\
+$rust\
+$golang\
+$python\
+$docker_context\
+[](fg:#394260 bg:#212736)\
+$time\
+[ ](fg:#212736)\
+$line_break$character"""
+
+[os]
+disabled = false
+style = "bg:#1a1b26 fg:#73daca"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+[username]
+show_always = true
+style_user = "bg:#1a1b26 fg:#73daca"
+style_root = "bg:#1a1b26 fg:#f7768e"
+format = '[$user ]($style)'
+disabled = false
+
+[directory]
+style = "fg:#e0af68 bg:#2f3549"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:#33467C fg:#73daca"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#33467C fg:#f7768e"
+format = '[$all_status$ahead_behind ]($style)'
+conflicted = "🏳"
+up_to_date = ""
+untracked = " "
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+stashed = " "
+modified = " "
+staged = '[++\($count\)](green)'
+renamed = "襁 "
+deleted = " "
+
+[nodejs]
+symbol = ""
+style = "bg:#394260 fg:#9ece6a"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#394260 fg:#e0af68"
+format = '[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = ""
+style = "bg:#394260 fg:#7dcfff"
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = ""
+style = "bg:#394260 fg:#e0af68"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:#394260 fg:#7aa2f7"
+format = '[ $symbol $context ]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#212736 fg:#73daca"
+format = '[ ♥ $time ]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[➜](bold fg:#73daca)'
+error_symbol = '[➜](bold fg:#f7768e)'
+vimcmd_symbol = '[](bold fg:#73daca)'
+vimcmd_replace_one_symbol = '[](bold fg:#bb9af7)'
+vimcmd_replace_symbol = '[](bold fg:#bb9af7)'
+vimcmd_visual_symbol = '[](bold fg:#e0af68)'
