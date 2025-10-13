@@ -25,6 +25,7 @@ return {
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.markdown-and-latex.markview-nvim" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.html-css" },
@@ -38,8 +39,8 @@ return {
   
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
 
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
-  
+  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+
   { import = "astrocommunity.utility.telescope-fzy-native-nvim" },
   { import = "astrocommunity.utility.telescope-live-grep-args-nvim" },
   { import = "astrocommunity.utility.noice-nvim" },

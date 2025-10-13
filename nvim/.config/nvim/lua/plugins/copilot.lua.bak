@@ -2,6 +2,7 @@
 return {
   {
     "zbirenbaum/copilot.lua",
+    enabled = false, -- 🔴 Disable Copilot core
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
@@ -36,15 +37,14 @@ return {
 
   {
     "zbirenbaum/copilot-cmp",
+    enabled = false, -- 🔴 Disable Copilot completion integration
     dependencies = "copilot.lua",
-    config = function()
-      require("copilot_cmp").setup()
-    end,
+    config = function() require("copilot_cmp").setup() end,
   },
 
-  -- Copilot Chat (Better than ChatGPT.nvim for Copilot users)
   {
     "CopilotC-Nvim/CopilotChat.nvim",
+    enabled = false, -- 🔴 Disable Copilot Chat
     branch = "canary",
     cmd = "CopilotChat",
     keys = {
