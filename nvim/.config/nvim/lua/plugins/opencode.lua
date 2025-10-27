@@ -1,6 +1,7 @@
 return {
   {
     "NickvanDyke/opencode.nvim",
+    enabled = false, -- 🔴 Disable OpenCode temporarily
     dependencies = { { "folke/snacks.nvim", opts = { input = { enabled = true } } } },
     init = function()
       -- Use vim.g.opencode_opts instead of setup()

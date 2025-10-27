@@ -293,8 +293,10 @@
 ## 📑 Buffer/Tab Management
 
 ### Buffers
-- `]b` Next buffer
-- `[b` Previous buffer
+- `L` Next buffer
+- `H` Previous buffer
+- `]b` Next buffer (alternative)
+- `[b` Previous buffer (alternative)
 - `<leader>bd` Close buffer (with picker)
 - `<leader>bc` Close all buffers
 - `<leader>bC` Close all buffers except current

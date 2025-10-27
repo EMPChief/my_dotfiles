@@ -88,6 +88,20 @@
 
 ---
 
+## 📓 Obsidian (Note Taking)
+
+- `<leader>oo` Quick switch between notes
+- `<leader>on` Create new note
+- `<leader>os` Search notes
+- `<leader>ot` Open today's daily note
+- `<leader>ob` Show backlinks
+- `<leader>og` Browse tags
+- `<leader>oc` Toggle checkbox
+- `<leader>ol` Link selection to note (visual mode)
+- `gf` Follow link under cursor
+
+---
+
 ## 📝 LSP (Language Server)
 
 - `gd` Go to definition
@@ -437,13 +451,14 @@ Current: TokyoNight (custom dark jade theme with transparent background)
 1. **Copilot in completion menu**: Copilot suggestions now appear in nvim-cmp alongside LSP completions
 2. **Oil.nvim**: Edit filesystem like a buffer - rename with text editing, delete with `dd`, save with `:w`
 3. **Harpoon**: Quickly mark and jump between frequently used files
-4. **Flash**: Use `s` for lightning-fast navigation to any visible text
-5. **Which-key**: Press `<leader>` and wait to see available keymaps
-6. **Treesitter context**: Shows function/class context at top of screen when scrolling
-7. **Yanky**: Cycle through yank history with `p` after pasting
-8. **Mini.ai**: Enhanced text objects for functions, classes, and scopes
-9. **Telescope live grep args**: Use `<leader>fg` for advanced grep with arguments
-10. **Format on save**: Enabled by default with 3s timeout
+4. **Obsidian**: Use `<leader>oo` to quickly switch notes, `gf` to follow links in markdown
+5. **Flash**: Use `s` for lightning-fast navigation to any visible text
+6. **Which-key**: Press `<leader>` and wait to see available keymaps
+7. **Treesitter context**: Shows function/class context at top of screen when scrolling
+8. **Yanky**: Cycle through yank history with `p` after pasting
+9. **Mini.ai**: Enhanced text objects for functions, classes, and scopes
+10. **Telescope live grep args**: Use `<leader>fg` for advanced grep with arguments
+11. **Format on save**: Enabled by default with 3s timeout
 
 ---
 
