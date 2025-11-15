@@ -1,0 +1,178 @@
+# ~/.config/alacritty/alacritty.yml
+# Modern Alacritty Configuration (Linux-ready)
+
+# ============================================================================
+# GENERAL
+# ============================================================================
+live_config_reload: true
+
+# ============================================================================
+# ENVIRONMENT VARIABLES
+# ============================================================================
+env:
+  TERM: "xterm-256color"
+
+# ============================================================================
+# WINDOW
+# ============================================================================
+window:
+  dimensions:
+    columns: 120
+    lines: 40
+  padding:
+    x: 8
+    y: 8
+  dynamic_padding: true
+  decorations: "Full" # Fixed: "Full" for title bar with buttons
+  startup_mode: "Windowed" # "Windowed", "Maximized", or "Fullscreen"
+  opacity: 1.0
+  blur: false # Only effective on macOS; no effect on Linux
+
+# ============================================================================
+# SCROLLING
+# ============================================================================
+scrolling:
+  history: 10000
+  multiplier: 3
+
+# ============================================================================
+# FONT
+# ============================================================================
+font:
+  size: 19.0
+  normal:
+    family: "MesloLGS Nerd Font Mono"
+    style: "Regular"
+  bold:
+    family: "MesloLGS Nerd Font Mono"
+    style: "Bold"
+  italic:
+    family: "MesloLGS Nerd Font Mono"
+    style: "Italic"
+  bold_italic:
+    family: "MesloLGS Nerd Font Mono"
+    style: "Bold Italic"
+  offset:
+    x: 0
+    y: 1
+  glyph_offset:
+    x: 0
+    y: 0
+
+# ============================================================================
+# COLORS
+# ============================================================================
+colors:
+  primary:
+    background: "#011423"
+    foreground: "#CBE0F0"
+  cursor:
+    text: "#011423"
+    cursor: "#47FF9C"
+  vi_mode_cursor:
+    text: "#011423"
+    cursor: "#47FF9C"
+  selection:
+    text: "#CBE0F0"
+    background: "#033259"
+  normal:
+    black: "#214969"
+    red: "#E52E2E"
+    green: "#44FFB1"
+    yellow: "#FFE073"
+    blue: "#0FC5ED"
+    magenta: "#a277ff"
+    cyan: "#24EAF7"
+    white: "#24EAF7"
+  bright:
+    black: "#214969"
+    red: "#E52E2E"
+    green: "#44FFB1"
+    yellow: "#FFE073"
+    blue: "#A277FF"
+    magenta: "#a277ff"
+    cyan: "#24EAF7"
+    white: "#24EAF7"
+
+# ============================================================================
+# BELL
+# ============================================================================
+bell:
+  animation: "EaseOutExpo"
+  duration: 100
+  color: "#47FF9C"
+
+# ============================================================================
+# CURSOR
+# ============================================================================
+cursor:
+  style:
+    shape: "Beam"
+    blinking: "On"
+  blink_interval: 700
+  blink_timeout: 0
+  unfocused_hollow: true
+
+# ============================================================================
+# MOUSE
+# ============================================================================
+mouse:
+  hide_when_typing: true
+  bindings:
+    - { mouse: "Left", mods: "Command", action: "ClickSelection" }
+
+# ============================================================================
+# HINTS (URL detection)
+# ============================================================================
+hints:
+  alphabet: "jfkdls;ahgurieowpq"
+  enabled:
+    - command: "xdg-open"
+      hyperlinks: true
+      post_processing: true
+      persist: false
+      mouse:
+        enabled: true
+      binding:
+        key: "U"
+        mods: "Control|Shift"
+      regex: "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+
+# ============================================================================
+# KEYBOARD BINDINGS
+# ============================================================================
+keyboard:
+  bindings:
+    - { key: "V", mods: "Command", action: "Paste" }
+    - { key: "C", mods: "Command", action: "Copy" }
+    - { key: "Q", mods: "Command", action: "Quit" }
+    - { key: "N", mods: "Command", action: "CreateNewWindow" }
+    - { key: "K", mods: "Command", action: "ClearHistory" }
+    - { key: "K", mods: "Command|Shift", action: "ClearLogNotice" }
+    - { key: "F", mods: "Command", mode: "~Search", action: "SearchForward" }
+    - { key: "B", mods: "Command", mode: "~Search", action: "SearchBackward" }
+    - { key: "J", mods: "Command", mode: "Search", action: "SearchNext" }
+    - { key: "K", mods: "Command", mode: "Search", action: "SearchPrevious" }
+    - { key: "Plus", mods: "Command", action: "IncreaseFontSize" }
+    - { key: "Minus", mods: "Command", action: "DecreaseFontSize" }
+    - { key: "Key0", mods: "Command", action: "ResetFontSize" }
+    - { key: "R", mods: "Command|Shift", action: "ResetFontSize" }
+
+# ============================================================================
+# SELECTION
+# ============================================================================
+selection:
+  save_to_clipboard: true
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\\t"
+
+# ============================================================================
+# DEBUG
+# ============================================================================
+debug:
+  render_timer: false
+  persistent_logging: false
+  log_level: "Warn"
+  renderer: "None"
+  print_events: false
+  highlight_damage: false
+  prefer_egl: false
