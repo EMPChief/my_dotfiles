@@ -1,6 +1,7 @@
 # ============================================
 # Oh My Zsh Configuration
 # ============================================
+export TERM="xterm-256color"
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 plugins=(
@@ -60,16 +61,16 @@ eval $(thefuck --alias)
 eval $(thefuck --alias fk)
 
 # Starship prompt (if installed, uncomment below)
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 # fnm (Fast Node Manager, if installed)
-# eval "$(fnm env --use-on-cd)"
+eval "$(fnm env --use-on-cd)"
 
 # mise (if installed, replaces asdf)
-# eval "$(mise activate zsh)"
+eval "$(mise activate zsh)"
 
 # direnv (if installed)
-# eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
 
 # ============================================
 # Source External Files
@@ -255,12 +256,6 @@ search() {
         --preview 'bat --color=always {1} --highlight-line {2}' \
         --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'
 }
-
-# ============================================
-# Startup Message
-# ============================================
-echo "🌊 Osaka Jade Shell - Ready!"
-echo "💡 Type 'reload' to refresh config"
 
 # ============================================
 # Performance: Load completions
