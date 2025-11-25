@@ -1,0 +1,210 @@
+[bell]
+animation = "EaseOutExpo"
+color = "#47FF9C"
+duration = 100
+
+[colors.bright]
+black = "#214969"
+blue = "#A277FF"
+cyan = "#24EAF7"
+green = "#44FFB1"
+magenta = "#a277ff"
+red = "#E52E2E"
+white = "#24EAF7"
+yellow = "#FFE073"
+
+[colors.cursor]
+cursor = "#47FF9C"
+text = "#011423"
+
+[colors.normal]
+black = "#214969"
+blue = "#0FC5ED"
+cyan = "#24EAF7"
+green = "#44FFB1"
+magenta = "#a277ff"
+red = "#E52E2E"
+white = "#24EAF7"
+yellow = "#FFE073"
+
+[colors.primary]
+background = "#011423"
+foreground = "#CBE0F0"
+
+[colors.selection]
+background = "#033259"
+text = "#CBE0F0"
+
+[colors.vi_mode_cursor]
+cursor = "#47FF9C"
+text = "#011423"
+
+[cursor]
+blink_interval = 700
+blink_timeout = 0
+unfocused_hollow = true
+
+[cursor.style]
+blinking = "On"
+shape = "Beam"
+
+[debug]
+highlight_damage = false
+log_level = "Warn"
+persistent_logging = false
+prefer_egl = false
+print_events = false
+render_timer = false
+renderer = "None"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 19.0
+
+[font.bold]
+family = "MesloLGS Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "MesloLGS Nerd Font Mono"
+style = "Bold Italic"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "MesloLGS Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "MesloLGS Nerd Font Mono"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 1
+
+[hints]
+alphabet = "jfkdls;ahgurieowpq"
+
+[[hints.enabled]]
+command = "xdg-open"
+hyperlinks = true
+persist = false
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\s{-}\\\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = true
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ClearHistory"
+key = "K"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ClearLogNotice"
+key = "K"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+action = "SearchForward"
+key = "F"
+mode = "~Search"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "SearchBackward"
+key = "B"
+mode = "~Search"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "SearchNext"
+key = "J"
+mode = "Search"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "SearchPrevious"
+key = "K"
+mode = "Search"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "R"
+mods = "Command|Shift"
+
+[mouse]
+hide_when_typing = true
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mods = "Command"
+mouse = "Left"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ''',│`|:"' ()[]{}<>\t'''
+
+[window]
+blur = false
+decorations = "Full"
+dynamic_padding = true
+opacity = 1.0
+startup_mode = "Windowed"
+
+[window.dimensions]
+columns = 120
+lines = 40
+
+[window.padding]
+x = 8
+y = 8
