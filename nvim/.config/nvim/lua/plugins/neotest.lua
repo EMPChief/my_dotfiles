@@ -7,6 +7,7 @@ return {
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
+      "mfussenegger/nvim-dap",
       "nvim-neotest/neotest-python",
       "nvim-neotest/neotest-go",
       "rouge8/neotest-rust",

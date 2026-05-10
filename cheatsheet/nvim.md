@@ -30,6 +30,19 @@
 
 ---
 
+## 🖥️ OpenCode (AI coding assistant)
+
+- `<leader>ait` Toggle OpenCode panel
+- `<leader>aiA` Ask (free prompt)
+- `<leader>aia` Ask about cursor / selection (normal/visual)
+- `<leader>ai+` Add buffer/selection to prompt (normal/visual)
+- `<leader>ain` New session
+- `<leader>aiy` Copy last response
+- `<leader>ais` Select prompt
+- `<leader>aie` Explain code at cursor
+
+---
+
 ## 🔍 Fuzzy Find / Telescope
 
 - `<leader>ff` Find files (root dir)
@@ -60,7 +73,8 @@
 ## 📁 File Explorer (Oil.nvim)
 
 - `-` Open Oil in parent directory
-- `<leader>e` Toggle Neo-tree file explorer
+- `<leader>e` Open Oil (current directory)
+- `<leader>E` Open Oil in floating window
 
 ### In Oil
 - `Enter` Open file/directory
@@ -69,9 +83,15 @@
 - `Ctrl+t` Open in new tab
 - `Ctrl+p` Preview file
 - `Ctrl+c` Close Oil
+- `Ctrl+r` Refresh directory
 - `-` Go to parent directory
 - `_` Open current working directory
+- `` ` `` cd to current directory
+- `~` tcd to current directory
+- `gs` Change sort order
+- `gx` Open file with external program
 - `g.` Toggle hidden files
+- `g\` Toggle trash
 - `g?` Show help
 - Edit files like text: rename by editing, delete with `dd`, save with `:w`
 
@@ -255,12 +275,16 @@
 - `#` Search word under cursor backward
 - `<leader>nh` Clear search highlights
 
-### Replace
+### Replace (built-in)
 - `:s/old/new/` Replace first in line
 - `:s/old/new/g` Replace all in line
 - `:%s/old/new/g` Replace all in file
 - `:%s/old/new/gc` Replace all with confirmation
 - `:'<,'>s/old/new/g` Replace in visual selection
+
+### Grug-Far (project-wide search & replace)
+- `<leader>sr` Open Grug-Far (normal) / Replace selection (visual)
+- `<leader>sw` Search & replace word under cursor
 
 ---
 
@@ -364,6 +388,96 @@
 
 ---
 
+## 🧪 Neotest (Test runner)
+
+- `<leader>Tr` Run nearest test
+- `<leader>Tf` Run test file
+- `<leader>Ts` Toggle test summary panel
+- `<leader>To` Toggle test output panel
+- `<leader>TS` Stop test run
+- `<leader>Td` Debug nearest test (via DAP)
+
+---
+
+## 📓 Obsidian
+
+### Notes
+- `<leader>on` New note
+- `<leader>oo` Quick switch notes
+- `<leader>os` Search notes
+- `<leader>of` Follow link under cursor
+
+### Daily Notes
+- `<leader>od` Open today's note
+- `<leader>oy` Open yesterday's note
+- `<leader>om` Open tomorrow's note
+
+### Navigation
+- `<leader>ob` Backlinks
+- `<leader>og` Tags
+
+### Editing
+- `<leader>ol` Link selection to note (visual)
+- `<leader>oL` Link selection to new note (visual)
+- `<leader>oc` Toggle checkbox
+- `<leader>ot` Insert template
+- `<leader>op` Paste image
+- `<leader>or` Rename note
+
+---
+
+## 💾 Sessions (Persistence)
+
+- `<leader>qs` Restore session for current directory
+- `<leader>ql` Restore last session
+- `<leader>qd` Disable session saving for this session
+
+---
+
+## 💡 vim-illuminate (Word Highlighting)
+
+Automatically highlights all occurrences of the word under the cursor.
+
+- `]]` Next reference
+- `[[` Previous reference
+
+---
+
+## 🔨 Refactoring (refactoring.nvim)
+
+### Normal Mode
+- `<leader>rb` Extract block
+- `<leader>rbf` Extract block to file
+- `<leader>ri` Inline variable
+- `<leader>rp` Debug: print function
+- `<leader>rd` Debug: print variable
+- `<leader>rc` Debug: clean up print statements
+
+### Visual / Visual-line Mode
+- `<leader>re` Extract function
+- `<leader>rf` Extract function to file
+- `<leader>rv` Extract variable
+- `<leader>ri` Inline variable
+- `<leader>rb` Extract block
+- `<leader>rbf` Extract block to file
+- `<leader>rr` Select refactor (picker)
+- `<leader>rp` Debug: print function
+- `<leader>rd` Debug: print variable
+- `<leader>rc` Debug: clean up print statements
+
+---
+
+## 🎨 Tailwind Tools (tailwind-tools.nvim)
+
+Inline color swatches next to Tailwind classes. No default keymaps — use commands:
+
+- `:TailwindColorToggle` Toggle inline color hints
+- `:TailwindSort` Sort Tailwind classes in buffer
+- `:TailwindSortSelection` Sort classes in visual selection
+- `:TailwindConcealToggle` Toggle class concealing
+
+---
+
 ## 🔧 Trouble (Diagnostics)
 
 - `<leader>xx` Toggle Trouble
@@ -437,7 +551,7 @@ Current: TokyoNight (custom dark jade theme with transparent background)
 ## 💡 Tips
 
 1. **Copilot in completion menu**: Copilot suggestions now appear in nvim-cmp alongside LSP completions
-2. **Oil.nvim**: Edit filesystem like a buffer - rename with text editing, delete with `dd`, save with `:w`
+2. **Oil.nvim**: Edit filesystem like a buffer - rename with text editing, delete with `dd`, save with `:w`; `<leader>E` for floating window
 3. **Harpoon**: Quickly mark and jump between frequently used files
 4. **Flash**: Use `s` for lightning-fast navigation to any visible text
 5. **Which-key**: Press `<leader>` and wait to see available keymaps
@@ -446,6 +560,17 @@ Current: TokyoNight (custom dark jade theme with transparent background)
 8. **Mini.ai**: Enhanced text objects for functions, classes, and scopes
 9. **Telescope live grep args**: Use `<leader>fg` for advanced grep with arguments
 10. **Format on save**: Enabled by default with 3s timeout
+11. **Grug-Far**: Project-wide find & replace with preview — `<leader>sr`
+12. **Neotest**: Run and debug tests inline — `<leader>Tr` nearest, `<leader>Tf` file
+13. **Obsidian**: Full note-taking integration — `<leader>oo` quick switch, `<leader>od` today's note
+14. **OpenCode**: AI coding assistant — `<leader>ait` to toggle, `<leader>aia` to ask about cursor
+15. **Persistence**: Auto-saves sessions per directory — `<leader>qs` to restore
+16. **Lint (nvim-lint)**: Auto-lints on save for sh/bash/dockerfile/yaml/go/js/ts — no keymaps needed
+17. **Aerial**: Code outline navigator (prefers LSP backend); keymaps via AstroNvim defaults
+18. **markview.nvim**: Currently disabled (Neovim 0.12 treesitter compatibility issue)
+19. **vim-illuminate**: Automatically highlights all refs of word under cursor — `]]`/`[[` to jump between them
+20. **refactoring.nvim**: Select code in visual mode first, then use `<leader>re`/`<leader>rv` to extract
+21. **tailwind-tools**: Color swatches appear inline automatically — use `:TailwindSort` to clean up class order
 
 ---
 
@@ -453,12 +578,16 @@ Current: TokyoNight (custom dark jade theme with transparent background)
 
 1. Open files: `<leader>ff` (Telescope find files)
 2. Search in files: `<leader>fg` (Live grep)
-3. Mark frequent files: `<leader>ma` (Harpoon mark)
-4. Jump between marks: `<leader>1-4` (Harpoon jump)
-5. AI assistance: `<leader>aa` (Copilot Chat)
-6. Code navigation: `gd` (go to definition), `gr` (references)
-7. Quick edits: `gcc` (comment), `ciw` (change word), `.` (repeat)
-8. Git workflow: `<leader>gg` (Neogit), `<leader>gd` (diff)
+3. Project replace: `<leader>sr` (Grug-Far)
+4. Mark frequent files: `<leader>ma` (Harpoon mark)
+5. Jump between marks: `<leader>1-4` (Harpoon jump)
+6. AI assistance: `<leader>aa` (Copilot Chat) / `<leader>ait` (OpenCode)
+7. Code navigation: `gd` (go to definition), `gr` (references)
+8. Quick edits: `gcc` (comment), `ciw` (change word), `.` (repeat)
+9. Git workflow: `<leader>gg` (Neogit), `<leader>gd` (diff)
+10. Run tests: `<leader>Tr` (nearest test), `<leader>Tf` (test file)
+11. Notes: `<leader>oo` (Obsidian quick switch), `<leader>od` (today's note)
+12. Restore session: `<leader>qs` (Persistence)
 
 ---
 

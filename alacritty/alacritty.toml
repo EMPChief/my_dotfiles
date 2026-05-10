@@ -195,3 +195,8 @@ mods = "Control|Shift"
 action = "ResetFontSize"
 key = "Key0"
 mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control"

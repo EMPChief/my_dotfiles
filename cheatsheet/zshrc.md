@@ -81,11 +81,15 @@
 
 ---
 
-## 🛠️ Utility Functions
+## 🛠️ Utility Functions & Aliases
 
 - `mkcd <name>` Create directory and cd into it
 - `extract <file>` Extract any archive (zip, tar, gz, bz2, rar, 7z, etc.)
 - `search <term>` Ripgrep search with FZF preview and line highlighting
+- `df` Disk usage (human-readable, aliased)
+- `du` Directory size (human-readable, aliased)
+- `grep` Ripgrep (aliased)
+- `ip` Colorized ip output (aliased)
 
 ---
 
@@ -130,11 +134,12 @@
 
 ## 🎨 Theme & Tools
 
-- **Theme**: Agnoster (shows git status, path)
+- **Theme**: Starship (OMZ theme is disabled — starship handles the prompt)
 - **FZF**: Osaka Jade color scheme (custom cyan/jade/teal theme)
 - **Bat**: Tokyo Night theme (`tokyonight_night`)
-- **Prompt**: Shows username@hostname, current directory, git branch
 - **Extended Glob**: Enabled for advanced pattern matching
+- `auto_cd`: Type a directory name to cd into it without the cd command
+- `no_beep`: Terminal bell disabled
 
 ---
 
@@ -143,6 +148,8 @@
 - `$EDITOR` = nvim
 - `$VISUAL` = nvim
 - `$PAGER` = less
+- `$LESS` = `-R -F -X --quit-if-one-screen` (colors, auto-quit short output, no clear on exit)
+- `$MANPAGER` = bat (man pages rendered with syntax highlighting)
 - `$GOPATH` = ~/go
 - `$BAT_THEME` = tokyonight_night
 
@@ -152,17 +159,19 @@
 
 - **Homebrew** (`brew`) - Linux package manager (active)
 - **Zoxide** - Smart directory jumper (replaces cd)
-- **TheFuck** - Command correction tool
+- **TheFuck** - Command correction tool (loaded if installed)
 - **FZF** - Fuzzy finder with Osaka Jade theme
-- **Bat** - Syntax highlighting cat replacement
+- **Bat** - Syntax highlighting cat/man replacement
 - **Eza** - Modern ls replacement with icons
+- **Ripgrep** (`rg`) - Fast grep replacement (aliased as `grep`)
 - **Go** modules - `~/go/bin` in PATH
 - **Cargo** (Rust) - `~/.cargo/bin` in PATH
 - **npm** global - `~/.npm-global/bin` in PATH
-- **Starship** - Optional prompt (commented out)
-- **fnm** - Fast Node Manager (commented out)
-- **mise** - asdf alternative (commented out)
-- **direnv** - Environment switcher (commented out)
+- **Starship** - Active prompt (OMZ theme disabled)
+- **fnm** - Fast Node Manager (loaded if installed)
+- **mise** - asdf alternative (loaded if installed)
+- **direnv** - Environment switcher (loaded if installed)
+- PATH deduplication via `typeset -U PATH` (no duplicate entries on reload)
 
 ---
 
@@ -231,7 +240,7 @@
 
 ## 🆘 Getting Help
 
-- `man <command>` Manual for command (colored)
+- `man <command>` Manual for command (rendered by bat with syntax highlighting)
 - `<command> --help` Quick help
 - `which <command>` Show command location
 - `type <command>` Show command type (alias, function, binary)
@@ -250,11 +259,12 @@
 
 ## ⚡ Performance Optimizations
 
-- Completion cache refreshed only once per day (checks date)
+- Completion cache refreshed only when older than 24 hours (zsh glob check)
 - Fast ESC key response (KEYTIMEOUT=1)
 - Shared history across all terminal sessions
-- Conditional loading for optional tools (fnm, mise, direnv)
-- History features: expire duplicates first, verify before execution
+- Optional tools (fnm, mise, direnv, thefuck) guarded with `command -v` — no startup errors if missing
+- History: expire/ignore all duplicates, verify before execution, ignore space-prefixed commands
+- PATH deduplication on every shell start (no bloat on reload)
 
 ---
 
@@ -271,9 +281,6 @@ Custom color scheme with:
 
 ---
 
-## 📋 Startup Message
+## 🔐 Security & Privacy (continued)
 
-```
-🌊 Osaka Jade Shell - Ready!
-💡 Type 'reload' to refresh config
-```
+- `hist_ignore_all_dups`: No duplicate commands kept anywhere in history (stronger than `hist_ignore_dups`)

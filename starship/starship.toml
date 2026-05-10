@@ -5,25 +5,30 @@ command_timeout = 1000
 
 format = """
 [┌─](bold green)\
+$os\
 $username\
 $hostname\
 $directory\
 $git_branch\
+$git_state\
 $git_status\
 $git_metrics\
+$jobs\
 $fill\
+$java\
 $nodejs\
 $python\
 $rust\
 $golang\
 $lua\
 $docker_context\
+$direnv\
 $cmd_duration\
 
 [└─](bold green)$character"""
 
-# Right prompt: time + battery
-right_format = """$battery$time"""
+# Right prompt: exit status + battery + time
+right_format = """$status$battery$time"""
 
 # === PROMPT CHARACTER ===
 [character]
@@ -33,6 +38,12 @@ vimcmd_symbol = "[N](bold green)"
 vimcmd_replace_symbol = "[R](bold purple)"
 vimcmd_replace_one_symbol = "[R](bold purple)"
 vimcmd_visual_symbol = "[V](bold yellow)"
+
+# === OS ===
+[os]
+disabled = false
+format = "[$symbol]($style)"
+style = "bold white"
 
 # === FILL ===
 # Pushes language modules to the right on the first line
@@ -57,6 +68,19 @@ style = "bold purple"
 truncation_length = 30
 truncation_symbol = "…"
 
+# === GIT STATE ===
+# Shows current git operation: REBASE 1/3, MERGING, CHERRY-PICK, etc.
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bold yellow"
+rebase = "REBASE"
+merge = "MERGE"
+revert = "REVERT"
+cherry_pick = "PICK"
+bisect = "BISECT"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+
 # === GIT STATUS ===
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
@@ -80,14 +104,29 @@ deleted_style = "bold red"
 format = '([+$added]($added_style) )([-$deleted]($deleted_style) )'
 only_nonzero_diffs = true                                           # Hide when nothing changed
 
+# === JOBS ===
+# Shows count of background jobs (suspended or running)
+[jobs]
+format = "[$symbol$number]($style) "
+symbol = " "
+style = "bold cyan"
+number_threshold = 1
+symbol_threshold = 1
+
 # === LANGUAGE VERSIONS ===
 # All auto-detect from project files — only shown when relevant
+
+[java]
+symbol = " "
+format = "via [$symbol($version )]($style)"
+style = "bold red"
+detect_files = ["pom.xml", "build.gradle", "build.gradle.kts", ".java-version", "gradlew"]
 
 [nodejs]
 symbol = " "
 format = "via [$symbol($version )]($style)"
 style = "bold green"
-detect_files = ["package.json", ".nvmrc", ".node-version"]
+detect_files = ["package.json", ".nvmrc", ".node-version", "yarn.lock", "package-lock.json", "bun.lockb"]
 
 [python]
 symbol = " "
@@ -98,6 +137,9 @@ detect_files = [
   "pyproject.toml",
   "setup.py",
   ".python-version",
+  "Pipfile",
+  "poetry.lock",
+  "tox.ini",
 ]
 
 [rust]
@@ -116,8 +158,18 @@ detect_files = ["go.mod", "go.sum"]
 symbol = " "
 format = "via [$symbol($version )]($style)"
 style = "bold blue"
-detect_files = [".lua-version"]
+detect_files = [".lua-version", ".luarc.json", ".luarc.jsonc"]
 detect_folders = ["lua"]
+
+# === DIRENV ===
+# Shows when a .envrc is loaded — active since direnv is configured in zsh
+[direnv]
+disabled = false
+format = '[$symbol$loaded]($style) '
+symbol = "󱄀 "
+style = "bold yellow"
+loaded_msg = "env"
+unloaded_msg = ""
 
 # === DOCKER ===
 [docker_context]
@@ -198,6 +250,16 @@ disabled = false
 symbol = "󱃾 "
 format = 'on [$symbol$context( \($namespace\))]($style) '
 style = "bold blue"
+
+# === EXIT STATUS ===
+# Shows on right side only when last command failed
+[status]
+disabled = false
+format = '[$symbol$status]($style) '
+symbol = "✖ "
+style = "bold red"
+map_symbol = true
+pipestatus = true
 
 # === DISABLED CLUTTER ===
 # These fire too often and add noise without value in most workflows

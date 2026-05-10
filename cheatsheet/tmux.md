@@ -16,6 +16,7 @@
 - `Ctrl+a n` Next window
 - `Ctrl+a p` Previous window
 - `Ctrl+a 0-9` Jump to window number
+- `Alt+1-5` Jump to window 1-5 (no prefix needed)
 - `Ctrl+a l` Last active window
 - `Ctrl+a w` List windows (interactive)
 - `Ctrl+a f` Find window by name
@@ -76,6 +77,7 @@
 - `Ctrl+a )` Switch to next session
 - `Ctrl+a s` List and switch sessions
 - `Ctrl+a Alt+c` Attach session in current directory
+- Note: `detach-on-destroy off` — closing a session auto-switches to the next one instead of detaching
 
 ### With tmux-sessionist Plugin
 - `Ctrl+a g` Go to/create session (prompts for name)
@@ -95,8 +97,8 @@
 ### In Copy Mode (Vi Keys)
 - `v` Begin selection
 - `V` Line selection
-- `Ctrl+v` Block selection
-- `y` Yank (copy) selection
+- `Ctrl+v` Toggle rectangle/block selection
+- `y` Yank (copy) selection (keeps selection highlighted)
 - `Enter` Copy and exit copy mode
 - `q` or `Esc` Exit copy mode
 
@@ -107,8 +109,8 @@
 - `gg/G` Top/bottom of buffer
 - `Ctrl+f/Ctrl+b` Page down/up
 - `Ctrl+d/Ctrl+u` Half page down/up
-- `/` Search forward
-- `?` Search backward
+- `/` Search forward (no wrap)
+- `?` Search backward (no wrap)
 - `n/N` Next/previous search result
 
 ### Pasting
@@ -159,6 +161,7 @@
 
 ### Tmux Commands
 - `Ctrl+a r` Reload config file
+- `Ctrl+a Ctrl+l` Send clear screen to shell (Ctrl+l is taken by navigator)
 - `Ctrl+a ?` List all key bindings
 - `Ctrl+a :` Enter command mode
 - `tmux list-keys` List all keybindings (outside tmux)
@@ -200,9 +203,12 @@
 - Right-click for context menu
 
 ### Performance Settings
-- Escape time: 10ms (fast for Neovim)
+- Escape time: 0ms (instant for Neovim)
 - Focus events enabled (for autoread in Neovim)
 - 50,000 line history buffer
+- Status bar refreshes every 5 seconds
+- Status messages display for 2 seconds
+- Search does not wrap at buffer boundaries
 - Automatic pane renaming enabled
 
 ### Window Numbering
@@ -310,6 +316,8 @@ Ctrl+a g          # goto/create session by name
 | **Zoom Pane** | `Ctrl+a m` |
 | **New Window** | `Ctrl+a c` |
 | **Next/Prev Window** | `Ctrl+a n/p` |
+| **Quick Window Jump** | `Alt+1-5` |
+| **Clear Screen** | `Ctrl+a Ctrl+l` |
 | **Copy Mode** | `Ctrl+a [` |
 | **Paste** | `Ctrl+a ]` |
 | **Detach** | `Ctrl+a d` |
