@@ -68,20 +68,5 @@ return {
       end,
       { desc = "Format file or range (in visual mode)" }
     )
-
-    -- Optional: Disable format on save for specific filetypes
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = "*",
-      callback = function(args)
-        -- Disable for large files
-        if vim.fn.getfsize(args.file) > 1024 * 1024 then -- 1MB
-          return
-        end
-
-        -- Disable for specific filetypes
-        local exclude_ft = { "oil" }
-        if vim.tbl_contains(exclude_ft, vim.bo[args.buf].filetype) then return end
-      end,
-    })
   end,
 }

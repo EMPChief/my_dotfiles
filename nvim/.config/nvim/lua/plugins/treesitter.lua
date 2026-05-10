@@ -52,10 +52,6 @@ return {
           node_decremental = "grm",
         },
       },
-      
-      textobjects = {
-        enable = true,
-      },
     },
   },
   {

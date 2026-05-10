@@ -24,7 +24,7 @@ return {
           -- Split window management
           ["<Leader>sv"] = { ":vsplit<CR>", desc = "Split window vertically" },
           ["<Leader>sh"] = { ":split<CR>", desc = "Split window horizontally" },
-          ["<Leader>se"] = { ":resize +5<CR>:vertical resize +5<CR>", desc = "Make splits equal size" },
+          ["<Leader>se"] = { "<C-w>=", desc = "Equalize split sizes" },
           ["<Leader>sx"] = { ":close<CR>", desc = "Close current split" },
 
           -- Tab management
