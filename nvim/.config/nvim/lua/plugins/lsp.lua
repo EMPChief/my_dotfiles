@@ -1,4 +1,4 @@
--- In your LSP config file
+-- LSP overrides: ruff + pyright configured to not conflict
 return {
   "neovim/nvim-lspconfig",
   opts = {

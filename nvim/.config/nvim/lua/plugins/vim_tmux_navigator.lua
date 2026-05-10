@@ -1,7 +1,6 @@
 ---@type LazySpec
 return {
   "christoomey/vim-tmux-navigator",
-  lazy = false,
   keys = {
     { "<C-h>", "<cmd>TmuxNavigateLeft<cr>", desc = "Navigate Left (tmux-aware)" },
     { "<C-j>", "<cmd>TmuxNavigateDown<cr>", desc = "Navigate Down (tmux-aware)" },

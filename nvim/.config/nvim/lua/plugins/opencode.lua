@@ -14,26 +14,27 @@ return {
       if not ok then return end
 
       vim.opt.autoread = true
-      vim.keymap.set("n", "<leader>ot", opencode.toggle, { desc = "Toggle" })
-      vim.keymap.set("n", "<leader>oA", opencode.ask, { desc = "Ask" })
-      vim.keymap.set("n", "<leader>oa", function() opencode.ask "@cursor: " end, { desc = "Ask about this" })
-      vim.keymap.set("v", "<leader>oa", function() opencode.ask "@selection: " end, { desc = "Ask about selection" })
+      -- <leader>ai prefix avoids conflict with obsidian's <leader>o* mappings
+      vim.keymap.set("n", "<leader>ait", opencode.toggle, { desc = "Toggle OpenCode" })
+      vim.keymap.set("n", "<leader>aiA", opencode.ask, { desc = "Ask" })
+      vim.keymap.set("n", "<leader>aia", function() opencode.ask "@cursor: " end, { desc = "Ask about this" })
+      vim.keymap.set("v", "<leader>aia", function() opencode.ask "@selection: " end, { desc = "Ask about selection" })
       vim.keymap.set(
         "n",
-        "<leader>o+",
+        "<leader>ai+",
         function() opencode.prompt("@buffer", { append = true }) end,
         { desc = "Add buffer to prompt" }
       )
       vim.keymap.set(
         "v",
-        "<leader>o+",
+        "<leader>ai+",
         function() opencode.prompt("@selection", { append = true }) end,
         { desc = "Add selection to prompt" }
       )
-      vim.keymap.set("n", "<leader>on", function() opencode.command "session_new" end, { desc = "New session" })
+      vim.keymap.set("n", "<leader>ain", function() opencode.command "session_new" end, { desc = "New session" })
       vim.keymap.set(
         "n",
-        "<leader>oy",
+        "<leader>aiy",
         function() opencode.command "messages_copy" end,
         { desc = "Copy last response" }
       )
@@ -49,10 +50,10 @@ return {
         function() opencode.command "messages_half_page_down" end,
         { desc = "Messages half page down" }
       )
-      vim.keymap.set({ "n", "v" }, "<leader>os", opencode.select, { desc = "Select prompt" })
+      vim.keymap.set({ "n", "v" }, "<leader>ais", opencode.select, { desc = "Select prompt" })
       vim.keymap.set(
         "n",
-        "<leader>oe",
+        "<leader>aie",
         function() opencode.prompt "Explain @cursor and its context" end,
         { desc = "Explain this code" }
       )
