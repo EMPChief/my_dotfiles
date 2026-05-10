@@ -18,6 +18,7 @@ return {
         "rust-analyzer",
         "tailwindcss-language-server",
         "typescript-language-server",
+        "vue-language-server",
         "yaml-language-server",
         -- Linters
         "eslint_d",

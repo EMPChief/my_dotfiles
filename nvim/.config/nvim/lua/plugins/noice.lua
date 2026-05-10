@@ -4,13 +4,9 @@ return {
   opts = {
     routes = {
       {
-        -- Suppress nvim-treesitter dead-node error (Neovim 0.12 compat issue)
-        filter = { event = "msg_show", find = "attempt to call method 'range'" },
-        opts = { skip = true },
-      },
-      {
-        -- Suppress aerial.nvim dead-node error (same Neovim 0.12 compat issue)
-        filter = { event = "msg_show", find = "attempt to call method 'start'" },
+        -- Suppress all TSNode dead-node errors (Neovim 0.12 compat issue in
+        -- nvim-treesitter/aerial/markview — node:range/start/type all nil)
+        filter = { event = "msg_show", find = "attempt to call method '.*' %(a nil value%)" },
         opts = { skip = true },
       },
     },

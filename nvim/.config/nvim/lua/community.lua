@@ -31,6 +31,9 @@ return {
   -- Use treesj instead (same concept, more powerful).
   { import = "astrocommunity.editing-support.treesj" },
 
+  -- Extract function/variable, inline variable via LSP
+  { import = "astrocommunity.editing-support.refactoring-nvim" },
+
   -- Shows current Treesitter scope at top of window
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
 
@@ -136,6 +139,9 @@ return {
   --
   -- Remove later if you notice duplicated frontend tooling/LSP behavior.
   { import = "astrocommunity.pack.html-css" },
+
+  -- Highlight all usages of the word under the cursor
+  { import = "astrocommunity.bars-and-lines.vim-illuminate" },
 
   -- Docker support
   { import = "astrocommunity.pack.docker" },

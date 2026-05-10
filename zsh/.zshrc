@@ -3,7 +3,7 @@
 # ============================================
 export TERM="xterm-256color"
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="agnoster"
+ZSH_THEME=""  # starship handles the prompt
 plugins=(
   git
   zsh-autosuggestions
@@ -12,6 +12,8 @@ plugins=(
   command-not-found
 )
 setopt extended_glob
+setopt auto_cd
+setopt no_beep
 source $ZSH/oh-my-zsh.sh
 
 # Faster ESC key response in vi mode
@@ -23,8 +25,9 @@ KEYTIMEOUT=1
 HISTFILE=$HOME/.zhistory
 HISTSIZE=100000
 SAVEHIST=100000
-setopt share_history 
+setopt share_history
 setopt hist_expire_dups_first
+setopt hist_ignore_all_dups
 setopt hist_ignore_dups
 setopt hist_verify
 setopt hist_ignore_space
@@ -35,6 +38,8 @@ setopt hist_ignore_space
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
+export LESS="-R -F -X --quit-if-one-screen"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export GOPATH="$HOME/go"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
@@ -46,6 +51,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
+typeset -U PATH
 
 # ============================================
 # External Tool Initialization (eval)
@@ -57,20 +63,19 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(zoxide init zsh)"
 
 # TheFuck
-eval $(thefuck --alias)
-eval $(thefuck --alias fk)
+command -v thefuck &>/dev/null && eval "$(thefuck --alias)" && eval "$(thefuck --alias fk)"
 
-# Starship prompt (if installed, uncomment below)
+# Starship prompt
 eval "$(starship init zsh)"
 
-# fnm (Fast Node Manager, if installed)
-eval "$(fnm env --use-on-cd)"
+# fnm (Fast Node Manager)
+command -v fnm &>/dev/null && eval "$(fnm env --use-on-cd)"
 
-# mise (if installed, replaces asdf)
-eval "$(mise activate zsh)"
+# mise (replaces asdf)
+command -v mise &>/dev/null && eval "$(mise activate zsh)"
 
-# direnv (if installed)
-eval "$(direnv hook zsh)"
+# direnv
+command -v direnv &>/dev/null && eval "$(direnv hook zsh)"
 
 # ============================================
 # Source External Files
@@ -85,6 +90,10 @@ eval "$(direnv hook zsh)"
 # Tool Aliases
 # ============================================
 alias cd="z"
+alias df="df -h"
+alias du="du -h"
+alias grep="rg"
+alias ip="ip --color"
 
 # ============================================
 # FZF Configuration - Osaka Jade Theme
@@ -261,7 +270,7 @@ search() {
 # Performance: Load completions
 # ============================================
 autoload -Uz compinit
-if [[ $(date +'%j') != $(stat -c '%y' ~/.zcompdump 2>/dev/null | cut -d' ' -f1 | date -f - +'%j' 2>/dev/null) ]]; then
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
   compinit
 else
   compinit -C

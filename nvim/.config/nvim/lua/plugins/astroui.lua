@@ -13,6 +13,9 @@ return {
     highlights = {
       init = { -- this table overrides highlights in all themes
         -- Normal = { bg = "#000000" },
+        -- LSP unused variables/parameters — dim but readable (default is near-black)
+        ["@lsp.mod.unused"] = { fg = "#6b7299", italic = true },
+        ["DiagnosticUnnecessary"] = { fg = "#6b7299", italic = true },
       },
       astrodark = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
