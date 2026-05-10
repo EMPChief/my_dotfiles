@@ -5,8 +5,12 @@ return {
     routes = {
       {
         -- Suppress nvim-treesitter dead-node error (Neovim 0.12 compat issue)
-        -- Remove once nvim-treesitter adds TSNode validity checks
         filter = { event = "msg_show", find = "attempt to call method 'range'" },
+        opts = { skip = true },
+      },
+      {
+        -- Suppress aerial.nvim dead-node error (same Neovim 0.12 compat issue)
+        filter = { event = "msg_show", find = "attempt to call method 'start'" },
         opts = { skip = true },
       },
     },
