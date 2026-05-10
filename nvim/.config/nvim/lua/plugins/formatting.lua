@@ -28,7 +28,7 @@ return {
         sh = { "shfmt" },
         bash = { "shfmt" },
 
-        go = { "goimports", "gofumpt" },
+        go = { "goimports", lsp_format = "last" },
 
         -- C/C++
         c = { "clang_format" },

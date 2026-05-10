@@ -10,7 +10,6 @@ return {
       bash = { "shellcheck" },
       dockerfile = { "hadolint" },
       yaml = { "yamllint" },
-      go = { "golangcilint" },
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
       javascriptreact = { "eslint_d" },
